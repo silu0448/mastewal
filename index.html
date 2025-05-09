@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Message for ማስተዋል</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20vh;
+      font-size: 3em;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    h2 {
+      font-size: 2em;
+      animation: fadeIn 5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart, .star {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      opacity: 0.9;
+      pointer-events: none;
+      animation: floatUp 10s linear forwards;
+    }
+
+    .heart {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Red_Heart.svg');
+    }
+
+    .star {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png');
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      position: fixed;
+      bottom: 200px;
+      left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ማስተዋል</h1>
+  <h2>እወድሻለሁ ❤️❤️🥰🌹🌹❤️❤️❤️💚🌹🌹I LOVE YOU</h2>
+
+  <audio controls autoplay loop>
+    <source src="Abinet.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function createFloatingIcon(type) {
+      const icon = document.createElement('div');
+      icon.className = type;
+      icon.style.left = Math.random() * 100 + 'vw';
+      icon.style.top = '100vh';
+      icon.style.transform = `scale(${0.5 + Math.random() * 1.5})`;
+      icon.style.animationDuration = `${6 + Math.random() * 4}s`;
+      document.body.appendChild(icon);
+      setTimeout(() => icon.remove(), 10000);
+    }
+
+    setInterval(() => {
+      const type = Math.random() > 0.5 ? 'heart' : 'star';
+      createFloatingIcon(type);
+    }, 300);
+  </script>
+</body>
+</html>
